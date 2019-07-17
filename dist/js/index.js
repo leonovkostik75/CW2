@@ -118,6 +118,22 @@ __webpack_require__.r(__webpack_exports__);
 console.log('works');
 Object(functions_testFunc__WEBPACK_IMPORTED_MODULE_0__["testFunc"])();
 
+var name = "";
+
+var user = {
+    name: "Василий",
+
+    export: function () {
+        var ob = {
+            name: 'Me',
+            value: this
+        };
+        return ob;
+    }
+};
+
+user.export();
+
 /***/ }),
 
 /***/ 0:
