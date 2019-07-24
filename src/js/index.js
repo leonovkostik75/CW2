@@ -1,20 +1,17 @@
-import {testFunc} from 'functions/testFunc';
+import $ from 'jquery';
 
-console.log('works');
-testFunc();
+$(document).ready(() => {
+    console.log($("#wrapper"));
+});
 
-var name = "";
+console.log(['Dog', ['Sheep', ['Wolf']]].flat(2));
 
-var user = {
-    name: "Василий",
-
-    export: function () {
-        var ob = {
-            name: 'Me',
-            value: this
-        };
-        return ob;
+class Human {
+    constructor(name) {
+        this.name = name;
     }
-};
 
-user.export();
+    sayHi() {
+        console.log('Hi, my name is' + this.name);
+    }
+}
