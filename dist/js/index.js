@@ -10723,36 +10723,179 @@ function testFunc() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
-  console.log(jquery__WEBPACK_IMPORTED_MODULE_0___default()("#wrapper"));
-});
-console.log(['Dog', ['Sheep', ['Wolf']]].flat(2));
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-var Human =
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+
+
+var AddClassOnClick = function AddClassOnClick(target) {
+  var _this = this;
+
+  var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+  _classCallCheck(this, AddClassOnClick);
+
+  var defaults = {
+    classReciever: null,
+    className: 'active'
+  };
+  this.settings = _objectSpread({}, defaults, {}, options);
+
+  this.clickHandler = function (e) {
+    e.preventDefault();
+    var classReciever = _this.settings.classReciever ? _this.settings.classReciever : jquery__WEBPACK_IMPORTED_MODULE_0___default()(e.target);
+    classReciever.toggleClass(_this.settings.className);
+  };
+
+  target.on('click', this.clickHandler);
+};
+
+var NavToggler =
 /*#__PURE__*/
-function () {
-  function Human(name) {
-    _classCallCheck(this, Human);
+function (_AddClassOnClick) {
+  _inherits(NavToggler, _AddClassOnClick);
 
-    this.name = name;
+  function NavToggler(target, options) {
+    var _this2;
+
+    _classCallCheck(this, NavToggler);
+
+    _this2 = _possibleConstructorReturn(this, _getPrototypeOf(NavToggler).call(this, target, options.classToggleOptions));
+    var defaultBreakpoint = 992;
+    _this2.breakpoint = options.breakpoint ? options.breakpoint : defaultBreakpoint;
+    _this2.target = target;
+
+    _this2.target.off('click', _this2.clickHandler);
+
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).on('load resize orientationchange', _this2.resizeHandler.bind(_assertThisInitialized(_this2)));
+    return _this2;
   }
 
-  _createClass(Human, [{
-    key: "sayHi",
-    value: function sayHi() {
-      console.log('Hi, my name is' + this.name);
+  _createClass(NavToggler, [{
+    key: "resizeHandler",
+    value: function resizeHandler() {
+      if (window.innerWidth > this.breakpoint) {
+        this.target.off('click', this.clickHandler);
+      } else {
+        this.target.off('click').on('click', this.clickHandler);
+      }
     }
   }]);
 
-  return Human;
+  return NavToggler;
+}(AddClassOnClick);
+
+var AccordionSlide =
+/*#__PURE__*/
+function () {
+  function AccordionSlide(slideWrap, accordion) {
+    _classCallCheck(this, AccordionSlide);
+
+    this.isOpened = false;
+    this.parent = accordion;
+    this.toggler = jquery__WEBPACK_IMPORTED_MODULE_0___default()(slideWrap).find('.opener');
+    this.drop = jquery__WEBPACK_IMPORTED_MODULE_0___default()(slideWrap).find('.drop');
+    this.toggler.click(this.toggleItem.bind(this));
+  }
+
+  _createClass(AccordionSlide, [{
+    key: "toggleItem",
+    value: function toggleItem() {
+      if (this.isOpened) {
+        this.parent.hideItem(this.drop);
+        this.isOpened = false;
+      } else {
+        var activeSlide = this.parent.slides.find(function (slide) {
+          return slide.isOpened;
+        });
+        activeSlide ? activeSlide.toggleItem() : null;
+        this.parent.showItem(this.drop);
+        this.isOpened = true;
+      }
+    }
+  }]);
+
+  return AccordionSlide;
 }();
+
+var Accordion =
+/*#__PURE__*/
+function () {
+  function Accordion(accordionWrap, animationSpeed) {
+    var _this3 = this;
+
+    _classCallCheck(this, Accordion);
+
+    this.animationSpeed = 0;
+    this.slides = [];
+
+    _toConsumableArray(accordionWrap.find('.slide')).forEach(function (slide) {
+      return _this3.slides.push(new AccordionSlide(slide, _this3));
+    });
+
+    this.slides.forEach(function (slide) {
+      return _this3.hideItem(slide.drop);
+    });
+    this.animationSpeed = animationSpeed ? animationSpeed : 150;
+  }
+
+  _createClass(Accordion, [{
+    key: "showItem",
+    value: function showItem(item) {
+      item.show(this.animationSpeed);
+    }
+  }, {
+    key: "hideItem",
+    value: function hideItem(item) {
+      item.hide(this.animationSpeed);
+    }
+  }]);
+
+  return Accordion;
+}();
+
+jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
+  var clickOnLink = new AddClassOnClick(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.plug-target'), {
+    classReciever: jquery__WEBPACK_IMPORTED_MODULE_0___default()('.dropdown-menu'),
+    className: 'show'
+  });
+  var clickOnLink2 = new NavToggler(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.navbar-toggler'), {
+    classToggleOptions: {
+      className: 'show',
+      classReciever: jquery__WEBPACK_IMPORTED_MODULE_0___default()('.navbar-collapse')
+    }
+  });
+  var accordion = new Accordion(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.accordion'));
+});
 
 /***/ }),
 
