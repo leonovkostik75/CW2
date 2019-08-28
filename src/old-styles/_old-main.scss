@@ -1,0 +1,96 @@
+@import "bootstrap-custom.scss";
+@import "fonts";
+@import "search";
+@import "header";
+// @import "burgermenu";
+@import "icom";
+@import "vars";
+@import "footer";
+@import "section";
+@import "func-rem";
+// @import "masonry";
+* {
+	
+    box-sizing: border-box;
+
+  &:before,
+  &:after {
+    box-sizing: border-box;
+  }
+}
+
+#wrapper {
+	overflow: hidden;
+	position: relative;
+	max-width: 80%;	 
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	min-width: 320px;
+}
+
+.pictures-links {
+    margin-top: 100px;
+    text-align: center;
+
+    li {
+        @extend %font-primary;
+        color: $htop-txt-clr;
+        display: inline-block;
+        text-transform: uppercase;
+        padding: 0 50px;
+
+        &:hover {
+            color: $htop-txt-clr-head;
+        }
+
+        a {
+            cursor: pointer;
+        }
+    }
+}
+
+.unline:after {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 100%;
+    margin-top: 5px;
+    color: $htop-txt-clr-head;
+    background-color: $btn-clr;
+}
+
+
+// <<<<<<  MASONRY  
+
+
+.pictures-package {
+    margin: -15px;
+    margin-top: 50px;
+
+    .item {
+        // float: left;
+        // width: 390px;
+        padding: 15px;
+
+        .all {
+            width: 100%;
+        }
+    }
+}
+
+.grid-sizer,
+.grid-item { width: 30%; }
+
+// .item.w2 {
+//     width: 400px;
+// }
+
+
+
+// >>>>>>>>  MASONRY 
+
+
+

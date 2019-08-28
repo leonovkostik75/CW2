@@ -1,0 +1,229 @@
+@import "vars";
+@import "fonts";
+
+#header-top {
+	@include media-breakpoint-up(sm) {
+	display: flex;
+	}
+	text-align: center;
+	align-items: center;
+	margin-bottom: 30px;
+	padding: 0 20px;	
+	border-bottom: 1px solid $header-top-border-color;
+	box-shadow: 0px 0px 3px $header-top-border-color;
+	.search-and-icom {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		.form-wrap,
+		.list-icomoon {
+			padding: 5px;
+			margin: 0;
+		}
+	
+		.icomoon {
+			margin: 0 0 5px;
+			padding: 0 7px;
+			border-right: 1px solid $header-top-border-color;
+			display: inline-block;
+					&:last-child {
+						border-right: 0;
+					}
+		}
+
+		.list-icomoon {
+			border-left: 1px solid $header-top-border-color;
+			border-right: 1px solid $header-top-border-color;			
+		}
+	}
+
+	.btn-primery .name-bottom {
+		@extend %font-secondary;
+	}
+
+	.daily-update {
+		@include media-breakpoint-up(sm) {
+		text-align: left;
+		flex-grow: 1;		
+		}
+		dt, dd {
+					display: inline;
+					@extend %font-primary;
+		}
+		dt {
+			color: $text-color-primery;
+		}
+		dd {
+			font-size: $font-size-small;
+			color: $text-color-light;
+		}
+	}
+
+	a {
+						color: $gray-600;					
+						text-decoration: none;
+					&:hover {
+						color: $orange;
+					}
+					}	
+}
+
+
+
+#header-center {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: 30px;
+
+	.logo {
+		margin-right: 20px;
+
+	}
+	.menu {
+		@include media-breakpoint-up(lg) {
+			opacity: 1;
+			visibility: visible;
+			flex-wrap: nowrap;
+		}
+		@include media-breakpoint-down(md) {
+		width: 100%;			
+		}
+		position: absolute;
+		z-index: 1;
+		top: 0;
+		right: 0;
+		display: flex;
+		flex-wrap: wrap;
+		padding: 0;
+		list-style: none;		
+		opacity: 0;
+		visibility: hidden;		
+		transition: opacity 1s, visibility 1s;
+		background-color: $corp-color;
+
+
+
+
+
+		li {
+			@include media-breakpoint-up(lg) {
+				display: inline-flex;
+			}
+			text-align: center;
+			display: flex;
+			justify-content: center;
+			width: 100%;
+			text-decoration: none;
+			vertical-align: top;
+
+				.btn-primery {
+					// display: inline-block;
+					position: relative;
+					margin: 0 20px;
+					padding: 7px 0;
+					
+					&:after {
+						content: '';
+						position: absolute;
+						z-index: 1;
+						height: 2px;
+						top: 100%;
+						transform: translateY(-100%);
+						left: 0;
+						right: 0;
+						background-color: $text-color-bottom;
+						opacity: 0;
+						transition: opacity .3s;
+						// transform: scaleX(0);
+						// transition: transform .3s;						
+					} 
+					&:hover {
+						&:after {
+							// transform: scaleX(1);
+							opacity: 1;
+							transition: opacity .3s;
+						}
+					}
+
+				}
+				// .active {
+				// 		// border-bottom: 2px solid $text-color-bottom;
+				// 		}			
+		}
+				.active:before {
+					content: '';
+					position: absolute;
+					z-index: 1;
+					height: 3px;
+					top: 100%;
+					transform: translateY(-100%);
+					left: 0;
+					right: 0;
+					background-color: $text-color-bottom;
+					opacity: 1;
+				}	
+	}
+		.show {
+		    transition: opacity 1s, visibility 1s;
+		   opacity: 0.9;
+		   visibility: visible;	
+		   width: 100%;	   
+		 }
+	
+	}
+#header-bottom {
+	// @include media-breakpoint-up(md) {
+	// 	// display: flex;		
+	// }
+	display:flex;
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: center;
+	.avatar {
+		justify-content: center;			
+	}
+
+	.card {
+		 @include media-breakpoint-up(md) {
+		flex-direction: row;		 	
+		align-items: flex-end;
+		justify-content: space-between;
+		 }
+		display: flex;
+		z-index: 0;
+		border: 0;
+		background-color: $body-bg;
+		margin-left: 30px;
+		line-height: 2rem;
+		flex-grow: 1;			
+		dt, dd, address {
+			display: inline;
+			@extend %font-primary;			
+		}
+		dt {
+			color: $text-color-light;
+		}
+		dd {
+			color: $text-color-primery;
+		}	
+
+		.contact-me {
+			display: flex;
+			justify-content: center;
+			margin: 1rem 1rem 2rem;
+			.name-bottom {
+			text-transform: uppercase;
+			background: $corp-color;
+			padding: 0.5rem 2rem;
+			text-decoration: none;					
+			color: $body-bg;
+			&:hover {
+			background-color: darken($corp-color, 10%);				
+			}
+			}
+		}
+		}
+	}

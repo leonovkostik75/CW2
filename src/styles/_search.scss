@@ -1,0 +1,22 @@
+.search-form {
+
+	display: flex;
+	flex-wrap: nowrap;
+	.button {
+		opacity: 0;
+	}	
+	.animated-input {
+		transition: width .3s, opacity .3s;
+		width: 0px;
+		opacity: 0;
+		&:focus {
+			width: 190px;
+			opacity: 1;
+		}		
+	}
+}
+
+
+
+
+

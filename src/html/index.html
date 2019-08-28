@@ -2,14 +2,147 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Title</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CW2</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="../../src/styles/assets/bootstrap/bootstrap.scss">
 	<link rel="stylesheet" href="../../dist/css/main.css">
-	<script src="../../dist/js/index.js"></script>
+	<!-- <link href="https://fonts.googleapis.com/css?family=Merriweather:300,700|Open+Sans:600,700i&display=swap" rel="stylesheet"> -->
+	<script
+  		src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+  		integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+  		crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/masonry-layout@4/dist/		masonry.pkgd.min.js"></script>
+	<!-- <script src="../../dist/js/index.js"></script>	 -->
 </head>
-<body>
-	<div id="wrapper">
-
+<body>	
+		<div id="header-top">					
+			<div class="daily-update">
+				<dl>
+						<div>
+							<dt>Daily Update: </dt>
+							<dd>Branding notes foto in portfolio</dd>
+						</div>
+				</dl>
+				
+			</div>
+			<div class="search-and-icom">
+				<!-- <div class="col-1 col-md-auto"> -->
+				<div>
+					<div class="form-wrap">
+						<form action="#" class="search-form">
+							<input type="search" id="search" class="animated-input" placeholder="search..." title="введите параметры поиска">
+							<label for="search" id="search-input"><i class="icon-search"></i></label>
+							<button type="button" class="button"><i class="icon-cross"></i></button>
+						</form>
+					</div>					
+				</div>
+				<ul class="list-icomoon">
+					<li class="icomoon"><a href="#" target ="_blank"><i class=icon-facebook></i></a></li>
+					<li class="icomoon"><a href="#" target ="_blank"><i class=icon-instagram></i></a></li>
+					<li class="icomoon"><a href="#" target ="_blank"><i class=icon-twitter></i></a></li>
+					<li class="icomoon"><a href="#" target ="_blank"><i class=icon-dribbble></i></a></li>
+					<li class="icomoon"><a href="#" target ="_blank"><i class=icon-tumblr></i></a></li>
+					<li class="icomoon"><a href="#" target ="_blank"><i class=icon-pinterest2></i></a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="container">	
+			<header id="header">
+				<div id="header-center">
+					<div class="logo">
+						<a href="#"><img src="../pictures/Logo.png" alt="Creative PORTFOLIO"></a>
+					</div>
+					<div class="main-menu">
+						<input id="burger" class="burger-input" type="checkbox"  />
+						<label for="burger" class="burger-label" >
+							<span></span>
+							<span ></span>
+							<span class="third"></span>
+							<span></span>
+						</label>
+						<ul id="menu" class="menu">
+							<li><a class="btn btn-primery active" href="#">home</a></li>
+							<li><a class="btn btn-primery" href="#" target ="_blank">portfolio</a></li>
+							<li><a class="btn btn-primery" href="#" target ="_blank">About</a></li>
+							<li><a class="btn btn-primery" href="#" target ="_blank">services</a></li>
+							<li><a class="btn btn-primery" href="#" target ="_blank">blog</a></li>
+							<li><a class="btn btn-primery" href="#" target ="_blank">Contact us</a></li>		
+						</ul>
+					</div>					
+				</div>
+				<div id="header-bottom">
+					<div class="avatar">
+						<img src="https://shariki.ru/files/products/shar-figura-minon-styuart.276x300.jpg?514e6c6789dbf5838b709067aee62917" alt="Avatar">
+					</div>
+					<div class="card">
+						<div class="card-list">
+							<dl>
+								<div>
+									<dt>name:&nbsp</dt>
+									<dd>Albert Alex</dd>
+								</div>
+								<div>
+									<dt>phone:&nbsp</dt>
+									<dd><a href="tel:+80386225688">+80 386 22 5688</a></dd>
+								</div>
+								<div>
+									<dt>email address:&nbsp </dt>
+									<dd><a href="mailto: info@domain.com"> info@domain.com</a></dd>
+								</div>
+								<div>
+									<dt> studio address:&nbsp</dt>
+									<dd><address>
+										Studio 36 Jamp road Street, New York ACT 1955
+										</address>
+									</dd>
+								</div>
+							</dl>
+						</div>
+						<div class="contact-me">
+							<a href="#" target="_blank" class="btn name-bottom">
+								contact me
+							</a>							
+						</div>
+					</div>
+				</div>			
+			</header>
+			<main role="main">			
+				<section class="content">
+					<div class="list-content">
+						<ul class="pic-menu">
+							<li class="pic-item"><a href="#" class="pic-menu-links all-active">All</a></li>
+							<li class="pic-item"><a href="#" class="pic-menu-links">Illustration</a></li>
+							<li class="pic-item"><a href="#" class="pic-menu-links">Presentation</a></li>
+							<li class="pic-item"><a href="#" class="pic-menu-links">Photography</a></li>
+							<li class="pic-item"><a href="#" class="pic-menu-links">Other</a></li>
+						</ul>					
+					</div>	
+					<div class="pictures">						
+						<div class="pictures-package" id="allpic">
+							<div class="grid-sizer"></div>
+						</div>
+					</div>									
+				</section>
+			</main>
+			<footer>
+				<div class="footer">
+					<ul class="list-icomoon">
+						<li class="icomoon"><a href="#" target ="_blank"><i class=icon-facebook></i></a></li>
+						<li class="icomoon"><a href="#" target ="_blank"><i class=icon-instagram></i></a></li>
+						<li class="icomoon"><a href="#" target ="_blank"><i class=icon-twitter></i></a></li>
+						<li class="icomoon"><a href="#" target ="_blank"><i class=icon-dribbble></i></a></li>
+						<li class="icomoon"><a href="#" target ="_blank"><i class=icon-tumblr></i></a></li>
+						<li class="icomoon"><a href="#" target ="_blank"><i class=icon-pinterest2></i></a></li>
+					</ul>
+					<p>
+						Portfolio with icon by <a href="#"><span>DIGITUDES</span></a><br>			
+						&copy Copyright 2015 @ <a href="#"><span>Republik. </span></a>All Rights Resrved
+					</p>
+				</div>			
+			</footer>
+		</div>
 	</div>
+<script src="../../dist/js/index.js"></script>
 </body>
 </html>

@@ -1,8 +1,90 @@
-* {
-  box-sizing: border-box;
-
+@import "bootstrap-custom.scss";
+@import "fonts";
+@import "search";
+@import "header";
+@import "burgermenu";
+@import "icom";
+@import "vars";
+@import "footer";
+@import "section";
+@import "func-rem";
+* {	
+    box-sizing: border-box;
   &:before,
   &:after {
     box-sizing: border-box;
   }
 }
+
+#wrapper {
+	overflow: hidden;
+	position: relative;
+	max-width: 100%;	 
+}
+
+#container {
+    padding: 20px;
+    background-color: $bg-color;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	min-width: 320px;
+    @extend %font-primary;
+    font-size: $font-size-primary;
+}
+
+
+a:hover, a:focus, a:active, a {
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+
+img {
+    display: inline-block;
+    vertical-align: top;
+    max-width: 100%;
+    height: auto;
+}
+
+.btn {
+    display: inline-block;
+    vertical-align: top;
+    box-shadow: none;
+    // padding: 10px 20px;
+    margin: 10px 20px 0;
+    border-radius: 0;
+    border: none;
+    color: $text-color-bottom;
+    // background-color: $corp-color;
+    text-transform: uppercase;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    transition: background-color .3s;
+    cursor: pointer;
+    &:hover, &:focus {
+        color: $text-color-bottom;
+        // background-color: darken($corp-color, 15%);
+    }
+
+    
+}
+
+// .unline:after {
+//     content: '';
+//     display: block;
+//     height: 2px;
+//     width: 100%;
+//     margin-top: 5px;
+//     color: $text-color-bottom;
+//     background-color: $bg-color;
+// }
+
+
+
+
+
+
